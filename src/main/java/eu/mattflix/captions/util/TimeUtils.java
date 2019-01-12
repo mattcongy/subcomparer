@@ -1,7 +1,6 @@
 package eu.mattflix.captions.util;
 
 import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.util.concurrent.TimeUnit;
 
 /**

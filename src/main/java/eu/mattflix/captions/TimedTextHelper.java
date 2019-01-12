@@ -85,6 +85,9 @@ public class TimedTextHelper {
                 case "vtt":
                     parser = Parsers.VTT_PARSER;
                     break;
+                default:
+                    parser = Parsers.SRT_PARSER;
+                    break;
             }
         }
         return parser;

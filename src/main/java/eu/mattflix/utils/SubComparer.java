@@ -19,7 +19,10 @@ import java.util.concurrent.TimeUnit;
 public class SubComparer {
 
     private static Logger LOG = LoggerFactory.getLogger(SubComparer.class);
+    private TimedTextResource originalResource;
+    private TimedTextResource comparedResource;
 
+    private SubComparerResult result;
     private SubComparer() {
     }
 
@@ -35,10 +38,7 @@ public class SubComparer {
         return SubComparerHolder.instance;
     }
 
-    private TimedTextResource originalResource;
-    private TimedTextResource comparedResource;
 
-    private SubComparerResult result;
 
     // Getter & Setters
     //********************

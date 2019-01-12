@@ -7,8 +7,6 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.swing.filechooser.FileFilter;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -54,8 +52,6 @@ public class SubFinder {
 
 
     public SubFinder(File originalFile, File folderToCompare) {
-        LOG.debug("SubFinder creation");
-        FileFilter filter = new FileNameExtensionFilter("Srt files", "srt");
         originalResource = TimedTextHelper.getTimedTextResource(originalFile);
         originalResource.setName(originalFile.getName());
 
@@ -129,17 +125,15 @@ public class SubFinder {
         String jsonReturn = "";
         try {
             jsonReturn = mapper.writeValueAsString(getBestResult());
+            return jsonReturn;
 
         }
         catch (Exception e){
 
             LOG.error("Error trying to marshall bestResult as JSON...");
         }
-        finally {
-            return jsonReturn;
-        }
 
-
+        return "";
     }
 
 

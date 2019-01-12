@@ -73,7 +73,7 @@ public class App {
     }
 
 
-    private static HelpFormatter createFormatter(Options options) {
+    private static HelpFormatter createFormatter() {
         HelpFormatter formatter = new HelpFormatter();
         formatter.setWidth(150);
 
@@ -107,7 +107,7 @@ public class App {
 
             if (!hasRequired) {
                 // /print help
-                HelpFormatter helpFormatter = createFormatter(options);
+                HelpFormatter helpFormatter = createFormatter();
                 helpFormatter.printHelp(APP_NAME, options);
             }
             return hasRequired;

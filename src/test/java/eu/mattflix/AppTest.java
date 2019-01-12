@@ -30,9 +30,7 @@ public class AppTest
             if (e.getClass().getName().equals("org.apache.commons.cli.ParseException")) {
                 assertTrue(e.getMessage().startsWith("Missing parameters"));
             }
-            else {
-                assertTrue(false);
-            }
+
         }
 
 

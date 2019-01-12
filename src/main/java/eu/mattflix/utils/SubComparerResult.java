@@ -5,7 +5,6 @@ public class SubComparerResult {
 
     private double matchRatio;
     private String fileName;
-    private String path;
 
 
 
@@ -35,12 +34,5 @@ public class SubComparerResult {
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
+    
 }

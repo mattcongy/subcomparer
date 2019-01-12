@@ -11,23 +11,27 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertTrue;
 
-public class SubFInderTest {
+public class SubFinderTest {
 
     public static Logger LOG = LoggerFactory.getLogger(SubComparerTest.class);
-
+    private TimedTextResource original;
+    private SubFinder sFinder;
     @Before
     public void setUp() throws Exception {
+        original = SubParser.parseFileFromResources("original.srt");
+        sFinder = new SubFinder(original);
     }
 
     @After
     public void tearDown() throws Exception {
+        original = null;
+        sFinder = null;
     }
 
     @Test
     public void compareMultipleFiles() {
 
-        TimedTextResource original = SubParser.parseFileFromResources("original.srt");
-        SubFinder sFinder = new SubFinder(original);
+
 
         sFinder.addCompareFile(SubParser.parseFileFromResources("compare.srt"));
         sFinder.addCompareFile(SubParser.parseFileFromResources("compare_2.srt"));

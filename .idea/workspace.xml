@@ -3,11 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="77c740c7-fde5-462e-9d04-7340c43e17d6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/eu/mattflix/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/mattflix/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/mattflix/captions/Parsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/mattflix/captions/Parsers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/eu/mattflix/captions/TimedTextHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/mattflix/captions/TimedTextHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/mattflix/captions/util/TimeUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/mattflix/captions/util/TimeUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubComparer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubComparer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubComparerResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubComparerResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/eu/mattflix/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/eu/mattflix/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/eu/mattflix/utils/SubComparerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/eu/mattflix/utils/SubComparerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/eu/mattflix/utils/SubFInderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/eu/mattflix/utils/SubFinderTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -34,8 +40,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubComparer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="709">
-              <caret line="119" selection-start-line="119" selection-end-line="119" />
+            <state relative-caret-position="360">
+              <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#667#668#0" expanded="true" />
@@ -48,8 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubFinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="670">
-              <caret line="128" column="31" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
+            <state relative-caret-position="326">
+              <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2885#2886#0" expanded="true" />
@@ -59,29 +65,44 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="14" selection-start-column="14" selection-end-column="14" />
+            <state relative-caret-position="180">
+              <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/captions/TimedTextHelper.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/eu/mattflix/utils/SubComparerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
+            <state relative-caret-position="705">
+              <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/captions/util/TimeUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
+            <state relative-caret-position="30">
+              <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/eu/mattflix/utils/SubFinderTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -99,31 +120,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubComparerResult.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/eu/mattflix/AppTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/captions/io/Parser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/App.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
+            <state relative-caret-position="435">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/App.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="949">
+              <caret line="110" column="59" lean-forward="true" selection-start-line="110" selection-start-column="59" selection-end-line="110" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/captions/TimedTextHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="588">
+              <caret line="89" column="26" selection-start-line="89" selection-start-column="26" selection-end-line="89" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -153,23 +177,25 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/eu/mattflix/captions/Parsers.java" />
         <option value="$PROJECT_DIR$/src/main/java/eu/mattflix/captions/TimedText.java" />
         <option value="$PROJECT_DIR$/src/main/java/eu/mattflix/captions/TimedTextResource.java" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/src/test/java/eu/mattflix/utils/SubComparerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/eu/mattflix/comparators/SubComparerResultsComparator.java" />
         <option value="$PROJECT_DIR$/src/test/resources/files/compare_2.srt" />
-        <option value="$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubComparerResult.java" />
         <option value="$PROJECT_DIR$/src/test/java/eu/mattflix/utils/SubFInderTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/eu/mattflix/AppTest.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubComparerResult.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/mattflix/captions/Parsers.java" />
         <option value="$PROJECT_DIR$/src/main/java/eu/mattflix/captions/TimedTextHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubComparer.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/eu/mattflix/App.java" />
+        <option value="$PROJECT_DIR$/src/test/java/eu/mattflix/utils/SubFinderTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/eu/mattflix/AppTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/eu/mattflix/utils/SubComparerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/mattflix/captions/util/TimeUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubFinder.java" />
-        <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubParser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/eu/mattflix/App.java" />
       </list>
     </option>
   </component>
@@ -259,6 +285,23 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="subcomparer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="subcomparer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mattflix" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="subcomparer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="subcomparer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mattflix" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="subcomparer" type="b2602c69:ProjectViewProjectNode" />
@@ -385,7 +428,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SubFInderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SubFinderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="subcomparer" />
       <extension name="coverage">
         <pattern>
@@ -394,14 +437,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="eu.mattflix.utils" />
-      <option name="MAIN_CLASS_NAME" value="eu.mattflix.utils.SubFInderTest" />
+      <option name="MAIN_CLASS_NAME" value="eu.mattflix.utils.SubFinderTest" />
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SubFInderTest.compareMultipleFiles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SubFinderTest.compareMultipleFiles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="subcomparer" />
       <extension name="coverage">
         <pattern>
@@ -410,7 +453,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="eu.mattflix.utils" />
-      <option name="MAIN_CLASS_NAME" value="eu.mattflix.utils.SubFInderTest" />
+      <option name="MAIN_CLASS_NAME" value="eu.mattflix.utils.SubFinderTest" />
       <option name="METHOD_NAME" value="compareMultipleFiles" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -456,15 +499,15 @@
       <item itemvalue="JUnit.eu.mattflix.utils in subcomparer" />
       <item itemvalue="JUnit.AppTest" />
       <item itemvalue="JUnit.SubComparerTest" />
-      <item itemvalue="JUnit.SubFInderTest.compareMultipleFiles" />
-      <item itemvalue="JUnit.SubFInderTest" />
+      <item itemvalue="JUnit.SubFinderTest.compareMultipleFiles" />
+      <item itemvalue="JUnit.SubFinderTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
         <item itemvalue="JUnit.AppTest" />
-        <item itemvalue="JUnit.SubFInderTest" />
-        <item itemvalue="JUnit.SubFInderTest.compareMultipleFiles" />
+        <item itemvalue="JUnit.SubFinderTest" />
+        <item itemvalue="JUnit.SubFinderTest.compareMultipleFiles" />
         <item itemvalue="JUnit.SubComparerTest" />
       </list>
     </recent_temporary>
@@ -525,7 +568,7 @@
     <frame x="0" y="23" width="2555" height="1334" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14962196" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14962196" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -534,7 +577,7 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32930756" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32850242" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32850242" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3993559" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="5" />
@@ -703,13 +746,6 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Downloads/Temp/suite_original.srt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/captions/Parsers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/captions/Types.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -736,26 +772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/eu/mattflix/utils/SubComparerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="35" column="52" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/eu/mattflix/utils/SubFInderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/commons-cli/commons-cli/1.4/commons-cli-1.4.jar!/org/apache/commons/cli/Option.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/commons-cli/commons-cli/1.4/commons-cli-1.4.jar!/org/apache/commons/cli/OptionBuilder.class" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_73.jdk/Contents/Home/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class" />
@@ -773,26 +789,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/comparators/SubComparerResultsComparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="12" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/eu/mattflix/AppTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/src.zip!/java/io/FileFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -800,36 +796,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubComparerResult.java">
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+        <state>
+          <caret column="14" selection-start-column="14" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubParser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubComparerResult.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="420">
+          <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/captions/Parsers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/captions/TimedTextHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubComparer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="119" selection-start-line="119" selection-end-line="119" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#667#668#0" expanded="true" />
-            <element signature="e#716#717#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="588">
+          <caret line="89" column="26" selection-start-line="89" selection-start-column="26" selection-end-line="89" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -840,20 +831,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/App.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubComparer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
+        <state relative-caret-position="360">
+          <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
+            <element signature="e#716#717#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/eu/mattflix/utils/SubFinderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/eu/mattflix/AppTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/comparators/SubComparerResultsComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="12" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/eu/mattflix/utils/SubComparerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/captions/util/TimeUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubFinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="670">
-          <caret line="128" column="31" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
+        <state relative-caret-position="326">
+          <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2885#2886#0" expanded="true" />
@@ -862,10 +902,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/utils/SubParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" selection-start-column="14" selection-end-column="14" />
+        <state relative-caret-position="180">
+          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/mattflix/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="949">
+          <caret line="110" column="59" lean-forward="true" selection-start-line="110" selection-start-column="59" selection-end-line="110" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

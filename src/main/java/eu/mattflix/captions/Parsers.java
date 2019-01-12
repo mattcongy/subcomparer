@@ -39,6 +39,9 @@ public class Parsers {
             case VTT:
                 parser = VTT_PARSER;
                 break;
+            default:
+                parser = SRT_PARSER;
+                break;
         }
         return parser;
     }
