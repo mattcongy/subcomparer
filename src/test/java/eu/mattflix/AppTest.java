@@ -18,5 +18,28 @@ public class AppTest
         assertTrue( true );
     }
 
+    @Test
+    public void mainTestEmpty() {
+        // Simulate args.
+        String[] args = {""};
+
+        try {
+            App.main(args);
+        }
+        catch (Exception e) {
+            if (e.getClass().getName().equals("org.apache.commons.cli.ParseException")) {
+                assertTrue(e.getMessage().startsWith("Missing parameters"));
+            }
+            else {
+                assertTrue(false);
+            }
+        }
+
+
+
+
+
+
+    }
 
 }

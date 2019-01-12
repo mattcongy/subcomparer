@@ -19,7 +19,7 @@ public class SubComparerResult {
 
     @Override
     public String toString() {
-        return "fileName=" + fileName + "Ratio=" + this.matchRatio+"%";
+        return "fileName=" + fileName + " (Ratio=" + this.matchRatio+"%)";
     }
 
 

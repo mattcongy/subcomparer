@@ -39,7 +39,10 @@ public class SubFInderTest {
             LOG.info(result.toString());
         }
 
-        assertTrue(true);
+
+        LOG.debug("Best Result is : {} with ratio {}",sFinder.getBestResult().getFileName(),sFinder.getBestResult().getMatchRatio() );
+
+        assertTrue(sFinder.getBestResult().getMatchRatio() == 100);
 
 
     }
