@@ -114,7 +114,7 @@ public class App {
         } catch (ParseException exp) {
             // oops, something went wrong
             System.err.println("Parsing failed.  Reason: " + exp.getMessage());
-            HelpFormatter helpFormatter = createFormatter(options);
+            HelpFormatter helpFormatter = createFormatter();
             helpFormatter.printHelp(APP_NAME, options);
             return false;
         }
