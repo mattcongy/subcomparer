@@ -9,37 +9,34 @@ import java.io.File;
 
 /**
  * Hello world!
- *
  */
-public class App 
-{
+public class App {
     public static Logger LOG = LoggerFactory.getLogger(App.class);
-    private static final String APP_NAME    = "SubComparer";
+    private static final String APP_NAME = "SubComparer";
     private static final String APP_VERSION = "0.0.1";
 
-    private static String destinationPath =           "";
+    private static String destinationPath = "";
     private static String sourcePath = "";
 
-    public static void main( String[] args ) throws Exception {
+    public static void main(String[] args) throws Exception {
 
         Options options = createOptions();
 
 
-        boolean hasRequired = parse(options,args);
+        boolean hasRequired = parse(options, args);
 
         File originalFile = new File(sourcePath);
         File destinationFolder = new File(destinationPath);
 
-        if (hasRequired && originalFile != null && destinationFolder != null)
-        {
-            SubFinder sFinder = new SubFinder(originalFile,destinationFolder);
+        if (hasRequired && originalFile != null && destinationFolder != null) {
+            SubFinder sFinder = new SubFinder(originalFile, destinationFolder);
             sFinder.compare();
 
             if (sFinder.getBestResult() != null) {
-                System.out.println("Best result is "+ sFinder.getBestResult().getFileName()+ " - Score : " + sFinder.getBestResult().getMatchRatio() +"%");
+                ///System.out.println("Best result is " + sFinder.getBestResult().getFileName() + " - Score : " + sFinder.getBestResult().getMatchRatio() + "%");
+                System.out.println(sFinder.getJSONBestResult());
             }
-        }
-        else {
+        } else {
             throw new ParseException("Missing parameters");
         }
 
@@ -51,15 +48,15 @@ public class App
 
         // create Options object
         Options options = new Options();
-        options.addOption("v","version of the application");
+        options.addOption("v", "version of the application");
 
         // Source file
         Option sourceOpt = Option.builder("s")
-                                 .argName("source path")
-                                 .hasArg()
-                                 .desc("path of the source file")
-                                 .required(true)
-                                 .build();
+                .argName("source path")
+                .hasArg()
+                .desc("path of the source file")
+                .required(true)
+                .build();
         options.addOption(sourceOpt);
 
         // Destination Folder
@@ -89,8 +86,8 @@ public class App
         boolean hasRequired = false;
         try {
             // parse the command line arguments
-            CommandLine line = parser.parse( options, args );
-            if( line.hasOption( "v" ) ) {
+            CommandLine line = parser.parse(options, args);
+            if (line.hasOption("v")) {
                 // initialise the member variable
                 System.out.println(APP_VERSION);
             }
@@ -98,15 +95,13 @@ public class App
             if (line.hasOption("d")) {
                 destinationPath = line.getOptionValue("d");
                 hasRequired = true;
-            }
-            else {
+            } else {
                 hasRequired = false;
             }
             if (line.hasOption("s")) {
                 sourcePath = line.getOptionValue("s");
                 hasRequired = true;
-            }
-            else {
+            } else {
                 hasRequired = false;
             }
 
@@ -116,12 +111,11 @@ public class App
                 helpFormatter.printHelp(APP_NAME, options);
             }
             return hasRequired;
-        }
-        catch( ParseException exp ) {
+        } catch (ParseException exp) {
             // oops, something went wrong
-            System.err.println( "Parsing failed.  Reason: " + exp.getMessage() );
+            System.err.println("Parsing failed.  Reason: " + exp.getMessage());
             HelpFormatter helpFormatter = createFormatter(options);
-            helpFormatter.printHelp( APP_NAME, options );
+            helpFormatter.printHelp(APP_NAME, options);
             return false;
         }
     }

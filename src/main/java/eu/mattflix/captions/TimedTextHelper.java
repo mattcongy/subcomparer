@@ -95,7 +95,10 @@ public class TimedTextHelper {
         if (parser == null)
             return null;
         try {
-            return new TimedTextResource(read(new FileInputStream(captionsFile), parser), parser.getType());
+
+            TimedTextResource ttr = new TimedTextResource(read(new FileInputStream(captionsFile), parser), parser.getType());
+            ttr.setName(captionsFile.getName());
+            return ttr;
         } catch (IOException e) {
             e.printStackTrace();
             return null;

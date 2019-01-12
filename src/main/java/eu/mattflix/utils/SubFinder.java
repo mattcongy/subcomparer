@@ -3,6 +3,7 @@ package eu.mattflix.utils;
 import eu.mattflix.captions.TimedTextHelper;
 import eu.mattflix.captions.TimedTextResource;
 import eu.mattflix.comparators.SubComparerResultsComparator;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -56,6 +57,7 @@ public class SubFinder {
         LOG.debug("SubFinder creation");
         FileFilter filter = new FileNameExtensionFilter("Srt files", "srt");
         originalResource = TimedTextHelper.getTimedTextResource(originalFile);
+        originalResource.setName(originalFile.getName());
 
         if (folderToCompare != null) {
             if (folderToCompare.isDirectory()) {
@@ -118,6 +120,25 @@ public class SubFinder {
         }
 
         return lastResult;
+
+    }
+
+    public String getJSONBestResult() {
+
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonReturn = "";
+        try {
+            jsonReturn = mapper.writeValueAsString(getBestResult());
+
+        }
+        catch (Exception e){
+
+            LOG.error("Error trying to marshall bestResult as JSON...");
+        }
+        finally {
+            return jsonReturn;
+        }
+
 
     }
 
