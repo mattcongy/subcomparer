@@ -16,7 +16,7 @@ public class SubComparerTest {
 
     @Before
     public void setUp() throws Exception {
-        SubComparer sc = SubComparer.getInstance();
+        sc = SubComparer.getInstance();
     }
 
     @After
@@ -43,6 +43,44 @@ public class SubComparerTest {
         assertTrue(scResult.getMatchRatio() == 100);
 
     }
+
+
+    @Test
+    public void testOriginalAndCompareWithTolerance() {
+        sc.setOriginalResource(SubParser.parseFileFromResources("original_tolerance.srt"));
+        sc.setComparedResource(SubParser.parseFileFromResources("compare_tolerance.srt"));
+
+        SubComparerResult scResult = sc.compareWithTolerance();
+
+        LOG.info("Final ratio is {}",scResult.getMatchRatio());
+    }
+
+    @Test
+    public void testComparaisonToleranceStart() {
+        double tolerance_start = 200;
+        boolean result = true;
+        SubComparerResult scResult;
+
+        sc.setOriginalResource(SubParser.parseFileFromResources("original_tolerance.srt"));
+        sc.setComparedResource(SubParser.parseFileFromResources("compare_tolerance.srt"));
+
+
+        while(result) {
+            sc.setTolerance_start(tolerance_start);
+            scResult = sc.compareWithTolerance();
+
+            LOG.info("Ratio with Tolerance {} is {}", tolerance_start, scResult.getMatchRatio());
+
+            // Reduce tolerance at each loop
+            tolerance_start -= 10;
+
+            result = (scResult.getMatchRatio() >= 90.0);
+        }
+
+
+    }
+
+
 
     @Test
     public void testTVShow() {

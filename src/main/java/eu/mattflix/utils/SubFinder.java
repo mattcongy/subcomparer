@@ -3,6 +3,7 @@ package eu.mattflix.utils;
 import eu.mattflix.captions.TimedTextHelper;
 import eu.mattflix.captions.TimedTextResource;
 import eu.mattflix.comparators.SubComparerResultsComparator;
+import eu.mattflix.filters.SrtFileFilter;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +16,7 @@ import java.util.Set;
 
 /**
  * SubFinder
- *
+ * <p>
  * A class that help to compare an original file with multiple files.
  * Give the ration of each file, and can return the best file path
  */
@@ -25,12 +26,13 @@ public class SubFinder {
 
     private SubComparer comparerInstance = SubComparer.getInstance();
 
-    private TimedTextResource       originalResource;
-    private Set<TimedTextResource>  compareResources;
+    private TimedTextResource originalResource;
+    private Set<TimedTextResource> compareResources;
     private ArrayList<SubComparerResult> results;
 
     /**
      * Create an instance of SubFinder.
+     *
      * @param original Original file representing the source file to compare with the list
      */
     public SubFinder(TimedTextResource original) {
@@ -41,7 +43,8 @@ public class SubFinder {
 
     /**
      * Create an instance of Subfinder with all parameters
-     * @param original Original file representing the source file to compare with the list
+     *
+     * @param original       Original file representing the source file to compare with the list
      * @param filesToCompare Set of files to compare
      */
     public SubFinder(TimedTextResource original, Set<TimedTextResource> filesToCompare) {
@@ -59,20 +62,15 @@ public class SubFinder {
             if (folderToCompare.isDirectory()) {
                 compareResources = new HashSet<>();
                 // Parse each element of the folder
-                for(File f: folderToCompare.listFiles(new java.io.FileFilter() {
-                    @Override
-                    public boolean accept(File pathname) {
-                        return pathname.getName().endsWith(".srt");
-                    }
-                })) {
 
-                    LOG.debug("Add file {} to the pool",f.getName());
+                for (File f : folderToCompare.listFiles(new SrtFileFilter()))
+                {
+                    LOG.debug("Add file {} ({}) to the pool", f.getName(),f.getAbsolutePath());
                     compareResources.add(TimedTextHelper.getTimedTextResource(f));
                 }
 
-            }
-            else {
-                LOG.error("Path given {} is not a folder. Exiting...",folderToCompare.getPath());
+            } else {
+                LOG.error("Path given {} is not a folder. Exiting...", folderToCompare.getPath());
             }
         }
 
@@ -85,24 +83,23 @@ public class SubFinder {
         compareResources.add(fileToAdd);
     }
 
-    public ArrayList<SubComparerResult> compare() {
+    public ArrayList<SubComparerResult> compare(double tolerance) {
 
-        launchComparaison();
+        launchComparaison(tolerance);
 
-        Collections.sort(results,new SubComparerResultsComparator());
+        Collections.sort(results, new SubComparerResultsComparator());
         return results;
     }
 
     /**
-     *
      * @return Best result (100% or best ratio). <br/>If two results are at the same ratio, the system return arbitraty the first one.
      */
     public SubComparerResult getBestResult() {
 
         double lastRatio = 0.0;
         SubComparerResult lastResult = null;
-        for (SubComparerResult result:results
-             ) {
+        for (SubComparerResult result : results
+        ) {
 
             if (result.getMatchRatio() > lastRatio) {
                 lastRatio = result.getMatchRatio();
@@ -127,8 +124,7 @@ public class SubFinder {
             jsonReturn = mapper.writeValueAsString(getBestResult());
             return jsonReturn;
 
-        }
-        catch (Exception e){
+        } catch (Exception e) {
 
             LOG.error("Error trying to marshall bestResult as JSON...");
         }
@@ -137,15 +133,34 @@ public class SubFinder {
     }
 
 
-
-    private void launchComparaison() {
+    private void launchComparaison(double tolerance) {
         comparerInstance.setOriginalResource(originalResource);
 
-        for (TimedTextResource ttr: compareResources
-                ) {
+        for (TimedTextResource ttr : compareResources
+        ) {
             comparerInstance.setComparedResource(ttr);
-            results.add(comparerInstance.compare());
+            if (tolerance != -1) {
+                comparerInstance.setTolerance_start(tolerance);
+                results.add(comparerInstance.compareWithTolerance());
+            }
+            else
+                results.add(comparerInstance.compare());
         }
     }
 
+    public TimedTextResource getOriginalResource() {
+        return originalResource;
+    }
+
+    public void setOriginalResource(TimedTextResource originalResource) {
+        this.originalResource = originalResource;
+    }
+
+    public Set<TimedTextResource> getCompareResources() {
+        return compareResources;
+    }
+
+    public void setCompareResources(Set<TimedTextResource> compareResources) {
+        this.compareResources = compareResources;
+    }
 }

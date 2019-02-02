@@ -7,9 +7,6 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 
-/**
- * Hello world!
- */
 public class App {
     public static Logger LOG = LoggerFactory.getLogger(App.class);
     private static final String APP_NAME = "SubComparer";
@@ -18,30 +15,45 @@ public class App {
     private static String destinationPath = "";
     private static String sourcePath = "";
 
+
     public static void main(String[] args) throws Exception {
 
         Options options = createOptions();
-
+        double tolerance = -1;
+        CommandLineParser parser = new DefaultParser();
 
         boolean hasRequired = parse(options, args);
 
         File originalFile = new File(sourcePath);
         File destinationFolder = new File(destinationPath);
 
-        if (hasRequired && originalFile != null && destinationFolder != null) {
-            SubFinder sFinder = new SubFinder(originalFile, destinationFolder);
-            sFinder.compare();
+        // Check parameters
 
-            if (sFinder.getBestResult() != null) {
-                ///System.out.println("Best result is " + sFinder.getBestResult().getFileName() + " - Score : " + sFinder.getBestResult().getMatchRatio() + "%");
-                System.out.println(sFinder.getJSONBestResult());
+
+        if (hasRequired && originalFile != null && destinationFolder != null) {
+
+            CommandLine line = parser.parse(options, args);
+            if (line.hasOption('t')) {
+                LOG.info("Set tolerance to {}",line.getOptionValue('t'));
+                tolerance = Double.valueOf(line.getOptionValue('t'));
             }
+
+                LOG.info("Start to compare Original file '{}' with all files in folder '{}'...",originalFile.getAbsolutePath(),destinationFolder.getAbsolutePath());
+                SubFinder sFinder = new SubFinder(originalFile, destinationFolder);
+                sFinder.compare(tolerance);
+
+                if (sFinder.getBestResult() != null) {
+                    ///System.out.println("Best result is " + sFinder.getBestResult().getFileName() + " - Score : " + sFinder.getBestResult().getMatchRatio() + "%");
+                    System.out.println(sFinder.getJSONBestResult());
+                }
+
         } else {
             throw new ParseException("Missing parameters");
         }
 
 
     }
+
 
 
     private static Options createOptions() {
@@ -68,6 +80,14 @@ public class App {
                 .build();
         options.addOption(destFoldOpt);
 
+        // Tolerance
+        Option toleranceStartOpt = Option.builder("t")
+                .argName("tolerance")
+                .hasArg(true)
+                .desc("tolerance between start position from source & comparison file")
+                .required(false)
+                .build();
+        options.addOption(toleranceStartOpt);
 
         return options;
     }
