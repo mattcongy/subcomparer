@@ -51,6 +51,7 @@ public class SubFinderTest {
         LOG.debug("Size : {}",sf1.getCompareResources().size());
         assert(sf1.getCompareResources().size() == 5);
 
+
     }
 
     @Test
@@ -75,6 +76,15 @@ public class SubFinderTest {
 
 
     }
+
+    @Test
+    public void compareWithFolder() {
+        ClassLoader classLoader = SubParser.class.getClassLoader();
+        File original = new File(classLoader.getResource("files/original.srt").getFile());
+        File destFolder = new File(classLoader.getResource("files/compare-folder").getFile());
+
+    }
+
 
 
 }

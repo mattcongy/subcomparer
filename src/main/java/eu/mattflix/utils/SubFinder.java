@@ -54,6 +54,13 @@ public class SubFinder {
     }
 
 
+    /**
+     * Create an instance of Subfinder with original file & folder to compare
+     * @see SrtFileFilter
+     *
+     * @param originalFile     Original file representing the source file to compare with the list
+     * @param folderToCompare  Folder instance. All files will be compared with the SrtFileFilter
+     */
     public SubFinder(File originalFile, File folderToCompare) {
         originalResource = TimedTextHelper.getTimedTextResource(originalFile);
         originalResource.setName(originalFile.getName());
@@ -92,7 +99,9 @@ public class SubFinder {
     }
 
     /**
-     * @return Best result (100% or best ratio). <br/>If two results are at the same ratio, the system return arbitraty the first one.
+     * Return the best result found in the Arraylist.
+     * @return Best result (100% or best ratio).
+     * <br/>If two results are at the same ratio, the system return arbitrary the first one.
      */
     public SubComparerResult getBestResult() {
 
@@ -116,20 +125,26 @@ public class SubFinder {
 
     }
 
+    /**
+     * Return the best result found in the Arraylist in JSON format.
+     * @return Best result (100% or best ratio).
+     * <br/>If two results are at the same ratio, the system return arbitrary the first one.
+     */
     public String getJSONBestResult() {
 
         ObjectMapper mapper = new ObjectMapper();
         String jsonReturn = "";
         try {
             jsonReturn = mapper.writeValueAsString(getBestResult());
-            return jsonReturn;
 
         } catch (Exception e) {
 
             LOG.error("Error trying to marshall bestResult as JSON...");
         }
+        finally {
+            return jsonReturn;
+        }
 
-        return "";
     }
 
 

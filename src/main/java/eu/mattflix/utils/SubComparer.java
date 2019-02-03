@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -108,7 +109,7 @@ public class SubComparer {
 
     }
 
-
+    // TODO: remove CompareResources, and give only the method with 'tolerance' parameter
     private SubComparerResult compareResources() {
         // Get Arrays for both files
         ArrayList<TimedText> originalTime = originalResource.getTimedTexts();
@@ -181,41 +182,29 @@ public class SubComparer {
 
         Stopwatch watcher = Stopwatch.createStarted();
 
+        // Try to look for this duration in the compared file
+        //1                                           2
+        //00:00:07,208 --> 00:00:09,575               00:00:07,310 --> 00:00:09,631
+        //Tara messer,                                Tara Messer, veux-tu m'épouser ?
+        LOG.debug("Start comparison with Tolearance Start : {}",tolerance_start);
         for (TimedText t : originalTime) {
-            LOG.debug("Searching for Index {} at position {}...",t.getIndex(),t.getPosition());
-            LOG.debug("{}",t.getText());
+            //LOG.debug("----------------------------------------------------------------------------------------------------------");
+            //LOG.debug("Searching for Index {} at position {} (Text is : {})",t.getIndex(),t.getPosition(),t.getText());
 
-            // Try to look for this duration in the compared file
-            //1                                           2
-            //00:00:07,208 --> 00:00:09,575               00:00:07,310 --> 00:00:09,631
-            //Tara messer,                                Tara Messer, veux-tu m'épouser ?
-
-
-            boolean bMatch = false;
-            for (TimedText ct : comparedTime)
-                if ((t.getPosition() <= (ct.getPosition() + getTolerance_start()) && t.getDuration() <= (ct.getDuration() + getTolerance_duration()))) {
-                    matchLinesWithoutDuration++;
-                    bMatch = true;
-                    break;
-
-                } else if ((t.getPosition() == ct.getPosition() && t.getDuration() == ct.getDuration())) {
-                    matchLines++;
-                    bMatch = true;
-                    break;
-                }
-
-            if (!bMatch) {
+            TimedText result = searchForIndex(t,comparedTime);
+            if (result != null)
+                matchLines++;
+            else {
                 LOG.debug("Entry not found. (Index :{} , Position :{}, Duration :{})", t.getIndex(), t.getPosition(), t.getDuration());
                 //LOG.debug("{}",t.getText());
                 unmatchLines++;
             }
 
-
         }
 
         watcher.stop();
         LOG.trace("End of computing. Time elapsed is {}s / {}ms", watcher.elapsed(TimeUnit.SECONDS), watcher.elapsed(TimeUnit.MILLISECONDS));
-        LOG.debug("Match Line : {} - MatchLineWithoutDuration : {} - Unmatch Line(s) : {} - Total Lines : {}", matchLines, matchLinesWithoutDuration, unmatchLines, originalTime.size());
+        LOG.debug("Match Line : {} - Unmatch Line(s) : {} - Total Lines : {}", matchLines, unmatchLines, originalTime.size());
         // Compute Ratio
         // 1. Check Matchline + unmatch line = Total lines of original
         double total = matchLines + matchLinesWithoutDuration + unmatchLines;
@@ -225,6 +214,64 @@ public class SubComparer {
         } else {
             return new SubComparerResult(comparedResource.getName(), -1);
         }
+
+    }
+
+    private TimedText searchForIndex(TimedText originalText, ArrayList<TimedText> compareToTexts) {
+
+        boolean foundPerfectMatch = false;
+        boolean foundMatch = false;
+        TimedText matchItem = null;
+        LOG.trace("----------------------------------------------------------------------------------------------------------");
+        LOG.trace("Searching for Index {} at position {} (Text is : {})",originalText.getIndex(),originalText.getPosition(),originalText.getText());
+
+
+
+        // 1. Search for perfect match.
+        LOG.debug("Looking for Perfect Match");
+        Iterator<TimedText> iter = compareToTexts.iterator();
+        while (iter.hasNext()) {
+
+            TimedText comparedLine = iter.next();
+            foundPerfectMatch = (originalText.getPosition() == comparedLine.getPosition());
+            matchItem = comparedLine;
+        }
+
+        Iterator<TimedText> iter2 = compareToTexts.listIterator();
+         // 2. Perfect Match not found, looking for the index with a tolerance.
+         //    At this time, first element is return by the system.
+        if (!foundPerfectMatch) {
+            LOG.trace("Perfect match not found, going to tolerance mode.");
+            while (!foundMatch && iter2.hasNext()) {
+
+                TimedText comparedLine = iter2.next();
+                foundMatch = (originalText.getPosition() >= comparedLine.getPosition() - tolerance_start && originalText.getPosition() <= comparedLine.getPosition() + tolerance_start);
+                matchItem = comparedLine;
+
+                if (LOG.isTraceEnabled()) {
+                    if (foundMatch) {
+                        LOG.trace("originalPosition={} - comparePosition={} - comparePosition + Tolerance={} - comparePosition - Tolerance={}",originalText.getPosition(),comparedLine.getPosition(),comparedLine.getPosition() + tolerance_start,comparedLine.getPosition() - tolerance_start);
+                    }
+                }
+
+            }
+
+            if (!foundMatch)
+                matchItem = null;
+            else {
+                LOG.debug("Found a match with compared index {} at position {} (Text is : {}",matchItem.getIndex(),matchItem.getPosition(),matchItem.getText());
+            }
+
+
+        }
+        else {
+            LOG.debug("Found perfect match with compared index {} at position {} (Text is : {})",matchItem.getIndex(),matchItem.getPosition(),matchItem.getText());
+
+        }
+
+        return matchItem;
+
+
 
     }
 

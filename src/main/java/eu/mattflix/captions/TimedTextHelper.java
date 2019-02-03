@@ -17,6 +17,7 @@
 package eu.mattflix.captions;
 
 import eu.mattflix.captions.io.Parser;
+import org.apache.commons.io.input.BOMInputStream;
 
 import java.io.*;
 import java.util.Collections;
@@ -37,7 +38,9 @@ public class TimedTextHelper {
      * @throws IOException
      */
     private static Map<Double, TimedText> read(InputStream inputStream, Parser parser) throws IOException {
-        Scanner scanner = new Scanner(inputStream);
+
+        BOMInputStream bomIn = new BOMInputStream(inputStream);
+        Scanner scanner = new Scanner(bomIn);
 
         if (parser == null) {
             System.err.println("Invalid parser");
@@ -52,7 +55,10 @@ public class TimedTextHelper {
         LinkedHashMap<Double, TimedText> timedTextMap = new LinkedHashMap<>();
 
         while (scanner.hasNextLine()) {
+
             String line = scanner.nextLine().trim();
+
+
             int lineType = parser.getLineType(line);
             if (lineType == Types.TYPE_INDEX) {
                 activeIndex = Integer.parseInt(line);

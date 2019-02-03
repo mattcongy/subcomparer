@@ -56,6 +56,28 @@ public class SubComparerTest {
     }
 
     @Test
+    public void testFirstAttemptWithGoodTolerance() {
+        double tolerance_start = 200;
+        boolean result = true;
+        SubComparerResult scResult;
+
+        sc.setOriginalResource(SubParser.parseFileFromResources("match-attempt/original.srt"));
+        sc.setComparedResource(SubParser.parseFileFromResources("match-attempt/compare.srt"));
+
+            sc.setTolerance_start(tolerance_start);
+            scResult = sc.compareWithTolerance();
+
+            LOG.info("Ratio with Tolerance {} is {}", tolerance_start, scResult.getMatchRatio());
+
+
+            result = (scResult.getMatchRatio() >= 90.0);
+        }
+
+
+
+
+
+    @Test
     public void testComparaisonToleranceStart() {
         double tolerance_start = 200;
         boolean result = true;
@@ -74,7 +96,8 @@ public class SubComparerTest {
             // Reduce tolerance at each loop
             tolerance_start -= 10;
 
-            result = (scResult.getMatchRatio() >= 90.0);
+            result = (scResult.getMatchRatio() >= 50.0);
+
         }
 
 
